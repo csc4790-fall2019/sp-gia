@@ -45,5 +45,23 @@ func (dm *DormMateAPI) CreateNewUserProfile(w http.ResponseWriter, r *http.Reque
 		}
 		return
 	}
+	if err != nil {
+		w.WriteHeader(http.StatusConflict)
+		if err := responseEncoder.Encode(&APIResponse{StatusMessage: err.Error()}); err != nil {
+			fmt.Fprintf(w, "Error %s occured while trying to add the user: \n", err.Error())
+		}
+	}
+	responseEncoder.Encode(&APIResponse{StatusMessage: "Ok"})
+}
 
+func (Ls *LinkShortenerAPI) GetAllUsers(w http.ResponseWriter, r *http.Request) {
+	allUsers := Ls.myConnection.GetUsers()
+
+	var response UsersMappingRespMultiple
+	response.Users = allUsers
+
+	content, _ := json.Marshal(response)
+	fmt.Fprintf(w, "%s \n", string(content))
+
+	return
 }

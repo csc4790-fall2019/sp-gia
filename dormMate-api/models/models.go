@@ -29,7 +29,7 @@ type APIResponse struct {
 	StatusMessage string `json: statusMessage`
 }
 
-type UsersMappingResp struct {
+type UserMappingResp struct {
 	Id        bson.ObjectId `json:"id" bson:"_id"`
 	FirstName string        `json:fName bson:fName`
 	LastName  string        `json:lName bson:lName`
