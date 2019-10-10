@@ -37,5 +37,5 @@ type UserMappingResp struct {
 }
 
 type UsersMappingRespMultiple struct {
-	Users []UsersMappingResp `json:"Users" bson:"Users"`
+	Users []UserMappingResp `json:"Users" bson:"Users"`
 }

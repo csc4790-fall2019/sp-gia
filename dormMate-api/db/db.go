@@ -4,11 +4,10 @@ import (
 	"errors"
 	"fmt"
 
-	//. "goProjects/dormMate-api/models"
+	. "goProjects/sp-gia/dormMate-api/models"
 
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
-	//"gopkg.in/mgo.v2/bson"
 )
 
 const CONNECTIONSTRING = "127.0.0.1"
@@ -71,7 +70,7 @@ func (c *MongoConnection) AddUser(id string, firstName string, lastName string, 
 				Id:        bson.NewObjectId(),
 				FirstName: firstName,
 				LastName:  lastName,
-				Email:     email,
+				EMail:     email,
 			},
 		)
 		if err != nil {

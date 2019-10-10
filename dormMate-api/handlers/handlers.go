@@ -3,8 +3,8 @@ package handlers
 import (
 	"encoding/json"
 	"fmt"
-	"goProjects/dormMate-api/db"
-	. "goProjects/dormMate-api/models"
+	"goProjects/sp-gia/dormMate-api/db"
+	. "goProjects/sp-gia/dormMate-api/models"
 	"net/http"
 )
 
@@ -17,12 +17,12 @@ type DormMateAPI struct {
 type JSONstring string
 
 func (j JSONstring) MarshalJSON([]byte, error) {
-	return []byte(j), nil
+	return //[]byte(j), nil
 }
 
 func NewDormMateAPI() *DormMateAPI {
 	DM := &DormMateAPI{
-		myConnection: db.newDBConnection(),
+		myConnection: db.NewDBConnection(),
 	}
 	return DM
 }
@@ -45,17 +45,11 @@ func (dm *DormMateAPI) CreateNewUserProfile(w http.ResponseWriter, r *http.Reque
 		}
 		return
 	}
-	if err != nil {
-		w.WriteHeader(http.StatusConflict)
-		if err := responseEncoder.Encode(&APIResponse{StatusMessage: err.Error()}); err != nil {
-			fmt.Fprintf(w, "Error %s occured while trying to add the user: \n", err.Error())
-		}
-	}
 	responseEncoder.Encode(&APIResponse{StatusMessage: "Ok"})
 }
 
-func (Ls *LinkShortenerAPI) GetAllUsers(w http.ResponseWriter, r *http.Request) {
-	allUsers := Ls.myConnection.GetUsers()
+func (dm *DormMateAPI) GetAllUsers(w http.ResponseWriter, r *http.Request) {
+	allUsers := dm.myConnection.GetUsers()
 
 	var response UsersMappingRespMultiple
 	response.Users = allUsers

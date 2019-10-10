@@ -8,8 +8,7 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
 
-	"goProjects/dormMate-api/handlers"
-	. "goProjects/dormMate-api/handlers"
+	"goProjects/sp-gia/dormMate-api/handlers"
 )
 
 const (
@@ -60,7 +59,7 @@ func NewDormMateRouter(routes Routes) *mux.Router {
 }
 
 func main() {
-	DormMate := handler.NewDormMateAPI()
+	DormMate := handlers.NewDormMateAPI()
 	routes := createRoutes(DormMate)
 	router := NewDormMateRouter(routes)
 	handler := cors.AllowAll().Handler(router)
