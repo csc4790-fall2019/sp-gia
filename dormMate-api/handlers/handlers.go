@@ -3,8 +3,8 @@ package handlers
 import (
 	"encoding/json"
 	"fmt"
-	"goProjects/dormMate-api/db"
-	. "goProjects/dormMate-api/models"
+	"goProjects/sp-gia/dormMate-api/db"
+	. "goProjects/sp-gia/dormMate-api/models"
 	"net/http"
 )
 
@@ -17,12 +17,12 @@ type DormMateAPI struct {
 type JSONstring string
 
 func (j JSONstring) MarshalJSON([]byte, error) {
-	return []byte(j), nil
+	return //[]byte(j), nil
 }
 
 func NewDormMateAPI() *DormMateAPI {
 	DM := &DormMateAPI{
-		myConnection: db.newDBConnection(),
+		myConnection: db.NewDBConnection(),
 	}
 	return DM
 }
@@ -45,5 +45,17 @@ func (dm *DormMateAPI) CreateNewUserProfile(w http.ResponseWriter, r *http.Reque
 		}
 		return
 	}
+	responseEncoder.Encode(&APIResponse{StatusMessage: "Ok"})
+}
 
+func (dm *DormMateAPI) GetAllUsers(w http.ResponseWriter, r *http.Request) {
+	allUsers := dm.myConnection.GetUsers()
+
+	var response UsersMappingRespMultiple
+	response.Users = allUsers
+
+	content, _ := json.Marshal(response)
+	fmt.Fprintf(w, "%s \n", string(content))
+
+	return
 }
