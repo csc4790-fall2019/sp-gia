@@ -1,0 +1,26 @@
+<!doctype html>
+<!--Style Sheet-->
+
+<!-- Login Boxes -->
+<div class="mx-auto" style= "width: 200px">
+  <h1><strong>DormMate</strong></h1>
+  <div class="container">
+    <form>
+		<div class="input">
+			<label>Email:</label>
+			<input type="text" name="email">
+		</div>
+		<div class="input">
+			<label>Password:</label>
+			<input type="password" name="password">
+		</div>
+		<div class="input">
+			<input class="btn btn-primary" value="Sign In" (click)="loginUser()">
+		</div>
+		
+	</form>
+	<nav>
+		<a routerLink="/createAccount" routerLinkActive="active" class="btn btn-primary">Create Account</a>
+	</nav>
+  </div>
+</div>
