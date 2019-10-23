@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrimaryComponent implements OnInit {
 
-  email:string;
-  password:string;
+  public email = "";
+  public password = "";
 
   constructor() {}
 
@@ -17,11 +17,12 @@ export class PrimaryComponent implements OnInit {
 
   loginUser() {
    	// body...
-   	//if((this.email=="iosuagwu@villanova.edu") && (this.password == "william")){
+    //console.log(event);
+   	if((this.email=="iosuagwu@villanova.edu") && (this.password == "william")){
    		console.log("Welcome!");
-   	//} //else{
-   	//	console.log("Incorrect Email or Password! Try Again");
-   	//}
+   	} else{
+   		console.log("Incorrect Email or Password! Try Again");
+   	}
    }
 
 }
