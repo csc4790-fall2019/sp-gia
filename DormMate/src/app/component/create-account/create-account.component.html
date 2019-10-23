@@ -1,28 +1,24 @@
 <!doctype html>
 
 <!-- Login Boxes -->
-<div class="mx-auto" style= "width: 200px">
-  <h1><strong>DormMate</strong></h1>
+<div class="mx-auto" style= "width: 400px">
+  <h1 style="text-align:center"><strong>DormMate</strong></h1>
   <div class="container">
-  	<span class="italic">All fields are required</span>
     <form>
-		<div class="input">
-			<label>Email:</label>
-			<input type="text" name="email">
-		</div>
-		<div class="input">
-			<label>Password:</label>
-			<input type="password" name="password1">
-		</div>
-		<div class="input">
-			<label>Confirm Password:</label>
-			<input type="password" name="password2">
-		</div>
-		<div class="input">
-			<input class="btn btn-primary" value="Create Account" (click)="checkCredentials()">
-			<!-- type="submit"-->
-		</div>
-		
-	</form>
+      <small id="emailHelp" class="form-text text-muted">All fields required</small>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address:</label>
+        <input [(ngModel)]="email" name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password:</label>
+        <input [(ngModel)]="password1" name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword2">Confirm Password:</label>
+        <input [(ngModel)]="password2" name="password" type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="checkCredentials()">Create Account</button>
+    </form>
   </div>
 </div>
