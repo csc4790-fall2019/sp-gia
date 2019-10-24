@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 	"strconv"
 
@@ -37,10 +38,17 @@ func createRoutes(DM *handlers.DormMateAPI) Routes {
 		},
 
 		Route{
-			"CreateNewUserProfile",
+			"CreateNewUser",
 			"POST",
-			routePrefix + "/newUserProfile",
-			DM.CreateNewUserProfile,
+			routePrefix + "/newUser",
+			DM.CreateNewUser,
+		},
+
+		Route{
+			"GetAllUsers",
+			"GET",
+			routePrefix + "/allUsers",
+			DM.GetAllUsers,
 		},
 	}
 }
@@ -59,9 +67,10 @@ func NewDormMateRouter(routes Routes) *mux.Router {
 }
 
 func main() {
+
 	DormMate := handlers.NewDormMateAPI()
 	routes := createRoutes(DormMate)
 	router := NewDormMateRouter(routes)
 	handler := cors.AllowAll().Handler(router)
-	http.ListenAndServe("0.0.0.0.8080", handler)
+	fmt.Println(http.ListenAndServe("0.0.0.0:8080", handler))
 }

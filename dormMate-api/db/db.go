@@ -4,10 +4,11 @@ import (
 	"errors"
 	"fmt"
 
+	"gopkg.in/mgo.v2/bson"
+
 	. "goProjects/sp-gia/dormMate-api/models"
 
 	"gopkg.in/mgo.v2"
-	"gopkg.in/mgo.v2/bson"
 )
 
 const CONNECTIONSTRING = "127.0.0.1"
@@ -22,8 +23,19 @@ func NewDBConnection() (conn *MongoConnection) {
 	return
 }
 
+type dbLogger bool
+
+func (w dbLogger) Output(calldepth int, s string) error {
+	fmt.Println(s)
+	return nil
+}
+
 func (c *MongoConnection) createConnection() (err error) {
+	dbl := dbLogger(true)
+	mgo.SetLogger(dbl)
+
 	fmt.Println("Creating connection to database...")
+	mgo.SetDebug(true)
 	c.originalSession, err = mgo.Dial(CONNECTIONSTRING)
 	if err == nil {
 		fmt.Println("Connection established to database")
@@ -33,8 +45,8 @@ func (c *MongoConnection) createConnection() (err error) {
 		}
 		index := mgo.Index{
 			Key:      []string{"$text:id"},
-			Unique:   false,
-			DropDups: false,
+			Unique:   true,
+			DropDups: true,
 		}
 		UserCollection.EnsureIndex(index)
 	} else {
@@ -54,12 +66,12 @@ func (c *MongoConnection) getSessionAndCollection() (session *mgo.Session, UserC
 		session = c.originalSession.Copy()
 		UserCollection = session.DB("dormmate").C("user-collection")
 	} else {
-		err = errors.New("No original session...")
+		err = errors.New("no original session found")
 	}
 	return
 }
 
-func (c *MongoConnection) AddUser(id string, firstName string, lastName string, email string, gender string, class int, hometown string, major string, smoke bool, alcohol bool, snore bool, bio bool, bedtime bool, neatness bool) (err error) {
+func (c *MongoConnection) AddUser(id string, firstName string, lastName string, email string, gender string, class int, hometown string, major string, smoke bool, alcohol bool, snore bool, bio string, bedtime bool, neatness bool) (err error) {
 	session, UserCollection, err := c.getSessionAndCollection()
 
 	if err == nil {
@@ -71,6 +83,16 @@ func (c *MongoConnection) AddUser(id string, firstName string, lastName string, 
 				FirstName: firstName,
 				LastName:  lastName,
 				EMail:     email,
+				Gender:    gender,
+				Class:     class,
+				Hometown:  hometown,
+				Major:     major,
+				Smoke:     smoke,
+				Alcohol:   alcohol,
+				Snore:     snore,
+				Bio:       bio,
+				Bedtime:   bedtime,
+				Neatness:  neatness,
 			},
 		)
 		if err != nil {

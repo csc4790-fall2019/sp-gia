@@ -16,8 +16,8 @@ type DormMateAPI struct {
 
 type JSONstring string
 
-func (j JSONstring) MarshalJSON([]byte, error) {
-	return //[]byte(j), nil
+func (j JSONstring) MarshalJSON() ([]byte, error) {
+	return []byte(j), nil
 }
 
 func NewDormMateAPI() *DormMateAPI {
@@ -27,7 +27,7 @@ func NewDormMateAPI() *DormMateAPI {
 	return DM
 }
 
-func (dm *DormMateAPI) Root(w http.ResponseWriter, r *http.Request) {
+func (Dm *DormMateAPI) Root(w http.ResponseWriter, r *http.Request) {
 	welcome := `{
 					"welcome" : "we have lift off."
 				}`
@@ -35,7 +35,7 @@ func (dm *DormMateAPI) Root(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "%s", string(content))
 }
 
-func (dm *DormMateAPI) CreateNewUserProfile(w http.ResponseWriter, r *http.Request) {
+func (Dm *DormMateAPI) CreateNewUser(w http.ResponseWriter, r *http.Request) {
 	reqBodyStruct := new(UserMapping)
 	responseEncoder := json.NewEncoder(w)
 	if err := json.NewDecoder(r.Body).Decode(&reqBodyStruct); err != nil {
@@ -45,11 +45,20 @@ func (dm *DormMateAPI) CreateNewUserProfile(w http.ResponseWriter, r *http.Reque
 		}
 		return
 	}
+
+	err := Dm.myConnection.AddUser(reqBodyStruct.ID, reqBodyStruct.FirstName, reqBodyStruct.LastName, reqBodyStruct.EMail, reqBodyStruct.Gender, reqBodyStruct.Class, reqBodyStruct.Hometown, reqBodyStruct.Major, reqBodyStruct.Smoke, reqBodyStruct.Alcohol, reqBodyStruct.Snore, reqBodyStruct.Bio, reqBodyStruct.Bedtime, reqBodyStruct.Neatness)
+
+	if err != nil {
+		w.WriteHeader(http.StatusConflict)
+		if err := responseEncoder.Encode(&APIResponse{StatusMessage: err.Error()}); err != nil {
+			fmt.Fprintf(w, "Error %s occured while trying to add user \n", err.Error())
+		}
+	}
 	responseEncoder.Encode(&APIResponse{StatusMessage: "Ok"})
 }
 
-func (dm *DormMateAPI) GetAllUsers(w http.ResponseWriter, r *http.Request) {
-	allUsers := dm.myConnection.GetUsers()
+func (Dm *DormMateAPI) GetAllUsers(w http.ResponseWriter, r *http.Request) {
+	allUsers := Dm.myConnection.GetUsers()
 
 	var response UsersMappingRespMultiple
 	response.Users = allUsers

@@ -34,6 +34,16 @@ type UserMappingResp struct {
 	FirstName string        `json:fName bson:fName`
 	LastName  string        `json:lName bson:lName`
 	EMail     string        `json:email bson:email`
+	Gender    string        `json:gender bson:gender`
+	Class     int           `json:class bson:class`
+	Hometown  string        `json:hometown bson:hometown`
+	Major     string        `json:major bson:major`
+	Smoke     bool          `json:smoke bson:smoke`
+	Alcohol   bool          `json:alcohol bson:alcohol`
+	Snore     bool          `json:snore bson:snore`
+	Bio       string        `json:bio bson:bio`
+	Bedtime   bool          `json:bedtime bson:bedtime`
+	Neatness  bool          `json:neatness bson:neatness`
 }
 
 type UsersMappingRespMultiple struct {
