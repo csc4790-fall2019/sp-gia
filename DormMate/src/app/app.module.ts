@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MatchComponent } from './component/match/match.component';
 //import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
@@ -13,7 +12,6 @@ import { MatchComponent } from './component/match/match.component';
   declarations: [
     AppComponent,
     routingComponents,
-    MatchComponent,
   ],
   imports: [
     BrowserModule,
