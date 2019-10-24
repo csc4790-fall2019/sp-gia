@@ -18,7 +18,7 @@
         <label for="exampleInputPassword2">Confirm Password:</label>
         <input [(ngModel)]="password2" name="password" type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
       </div>
-      <button type="submit" class="btn btn-primary" (click)="checkCredentials()">Create Account</button>
+      <button routerLink="/Match" routerLinkActive="active" type="submit" class="btn btn-primary" (click)="checkCredentials()">Create Account</button>
     </form>
   </div>
 </div>

@@ -18,7 +18,9 @@ export class CreateAccountComponent implements OnInit {
   checkCredentials(){
   	if(this.password1 == this.password2){
   		console.log("Account Creation Successfull");
-  	}
+  	} else{
+      console.log("Passwords do not match");
+    }
   }
 
 }
