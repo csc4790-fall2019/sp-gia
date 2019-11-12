@@ -12,7 +12,6 @@ import { AppComponent } from './app.component';
   declarations: [
     AppComponent,
     routingComponents,
-    MessagingComponent
   ],
   imports: [
     BrowserModule,
