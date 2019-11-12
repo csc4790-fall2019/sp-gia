@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MessagingComponent } from './component/messaging/messaging.component';
 //import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 

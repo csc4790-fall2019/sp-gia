@@ -7,6 +7,7 @@ import { CreateAccountComponent } from './component/create-account/create-accoun
 import { MatchComponent } from './component/match/match.component';
 import { EditProfileComponent } from './component/edit-profile/edit-profile.component';
 import { ProfileComponent } from './component/profile/profile.component';
+import { MessagingComponent } from './component/messaging/messaging.component';
 
 const routes: Routes = [
 	{path: 'admin', component: AdminComponent},
@@ -14,7 +15,8 @@ const routes: Routes = [
 	{path: 'createAccount', component: CreateAccountComponent},
 	{path: 'Match', component: MatchComponent},
 	{path: 'editProfile', component: EditProfileComponent},
-	{path: 'Profile', component: ProfileComponent}
+	{path: 'Profile', component: ProfileComponent},
+	{path: 'messages', component: MessagingComponent}
 ];
 
 @NgModule({
@@ -22,4 +24,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [AdminComponent, PrimaryComponent, CreateAccountComponent, MatchComponent, EditProfileComponent, ProfileComponent]
+export const routingComponents = [AdminComponent, PrimaryComponent, CreateAccountComponent, MatchComponent, EditProfileComponent, ProfileComponent, MessagingComponent]
