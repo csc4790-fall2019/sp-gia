@@ -6,13 +6,15 @@ import { AdminComponent } from './component/admin/admin.component';
 import { CreateAccountComponent } from './component/create-account/create-account.component';
 import { MatchComponent } from './component/match/match.component';
 import { EditProfileComponent } from './component/edit-profile/edit-profile.component';
+import { ProfileComponent } from './component/profile/profile.component';
 
 const routes: Routes = [
 	{path: 'admin', component: AdminComponent},
 	{path: '', component: PrimaryComponent},
 	{path: 'createAccount', component: CreateAccountComponent},
 	{path: 'Match', component: MatchComponent},
-	{path: 'editProfile', component: EditProfileComponent}
+	{path: 'editProfile', component: EditProfileComponent},
+	{path: 'Profile', component: ProfileComponent}
 ];
 
 @NgModule({
@@ -20,4 +22,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [AdminComponent, PrimaryComponent, CreateAccountComponent, MatchComponent, EditProfileComponent]
+export const routingComponents = [AdminComponent, PrimaryComponent, CreateAccountComponent, MatchComponent, EditProfileComponent, ProfileComponent]
