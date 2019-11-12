@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MessagingComponent } from './component/messaging/messaging.component';
 //import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
@@ -11,7 +12,8 @@ import { AppComponent } from './app.component';
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents
+    routingComponents,
+    MessagingComponent
   ],
   imports: [
     BrowserModule,
