@@ -10,6 +10,11 @@ export class EditProfileComponent implements OnInit {
   public hometown= "";
   public major = "";
   public bedtime = "";
+  public firstName = "";
+  public lastName = ""
+  public bio = "";
+  public exampleFormControlSelect1 = "";
+  public
   constructor() { }
 
   ngOnInit() {

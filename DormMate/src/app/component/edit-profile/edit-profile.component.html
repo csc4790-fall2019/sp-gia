@@ -16,12 +16,13 @@
 
       <div class="col" >
         <div class="card" style="width: 40rem;">
-          <input class="card-header" name="name" type="text" placeholder="Enter Name">
+          <input class="card-header" [(ngModel)]="firstName" name="firstName" type="text" placeholder="Enter First Name">
+          <input class="card-header" [(ngModel)]="lastName" name="lastName" type="text" placeholder="Enter Last Name">
           <div class="card-body">
             <form>
               <div class="form-group row">
                 <label for="exampleFormControlSelect1" class="col-sm-4">Class:</label>
-                <select class="form-control col-sm-7" id="exampleFormControlSelect1">
+                <select class="form-control col-sm-7" id="exampleFormControlSelect1" [(ngModel)]="exampleFormControlSelect1">
                   <option>2020</option>
                   <option>2021</option>
                   <option>2022</option>
@@ -116,7 +117,7 @@
             </form>
             <div class="form-group">
               <label for="bioInput">Write a Bio!</label>
-              <textarea class="form-control" id="bioInput" rows="3"></textarea>
+              <textarea  [(ngModel)]="bio" name="bio" class="form-control" id="bioInput" rows="3"></textarea>
             </div>
           </div>
         </div>
