@@ -6,6 +6,8 @@ import (
 	"goProjects/sp-gia/dormMate-api/db"
 	. "goProjects/sp-gia/dormMate-api/models"
 	"net/http"
+
+	"github.com/gorilla/mux"
 )
 
 const DOMAIN = "dormmate.com"
@@ -40,7 +42,7 @@ func (Dm *DormMateAPI) CreateNewUser(w http.ResponseWriter, r *http.Request) {
 	responseEncoder := json.NewEncoder(w)
 	if err := json.NewDecoder(r.Body).Decode(&reqBodyStruct); err != nil {
 		w.WriteHeader(http.StatusBadRequest)
-		if err := responseEncoder.Encode(&APIResponse{StatusMessage: err.Error()}); err != nil {
+		if err := responseEncoder.Encode(&APIResponse{StatusCode: http.StatusBadRequest}); err != nil {
 			fmt.Fprintf(w, "Error occurred while processing POST request %v \n", err.Error())
 		}
 		return
@@ -50,19 +52,33 @@ func (Dm *DormMateAPI) CreateNewUser(w http.ResponseWriter, r *http.Request) {
 
 	if err != nil {
 		w.WriteHeader(http.StatusConflict)
-		if err := responseEncoder.Encode(&APIResponse{StatusMessage: err.Error()}); err != nil {
+		if err := responseEncoder.Encode(&APIResponse{StatusCode: http.StatusBadRequest}); err != nil {
 			fmt.Fprintf(w, "Error %s occured while trying to add user \n", err.Error())
 		}
 	}
-	responseEncoder.Encode(&APIResponse{StatusMessage: "Ok"})
+	responseEncoder.Encode(&APIResponse{StatusCode: http.StatusOK})
 }
 
 func (Dm *DormMateAPI) UpdateUser(w http.ResponseWriter, r *http.Request) {
+	//err := Dm.myConnection.UpdateUser()
+
+	return
+}
+
+func (Dm *DormMateAPI) GetSingleUser(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	email := vars["email"]
+
+	//singleUser := Dm.myConnection.GetSingleUser(email)
+
+	//content, _ := json.Marshal(singleUser)
+	fmt.Fprintf(w, "%s \n", email)
+
 	return
 }
 
 func (Dm *DormMateAPI) GetAllUsers(w http.ResponseWriter, r *http.Request) {
-	allUsers := Dm.myConnection.GetUsers()
+	allUsers := Dm.myConnection.GetAllUsers()
 
 	var response UsersMappingRespMultiple
 	response.Users = allUsers

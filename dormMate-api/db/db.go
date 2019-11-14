@@ -44,9 +44,8 @@ func (c *MongoConnection) createConnection() (err error) {
 			err = errors.New("Collection failed, attempt manually")
 		}
 		index := mgo.Index{
-			Key:      []string{"$text:id"},
-			Unique:   true,
-			DropDups: true,
+			Key:    []string{"email", "$text:id"},
+			Unique: true,
 		}
 		UserCollection.EnsureIndex(index)
 	} else {
@@ -93,7 +92,27 @@ func (c *MongoConnection) AddUser(id string, email string, password string) (err
 	return
 }
 
-func (c *MongoConnection) GetUsers() []UserMappingResp {
+func (c *MongoConnection) UpdateUser() (err error) {
+	return
+}
+
+func (c *MongoConnection) GetSingleUser(email string) (password string) {
+	result := UserMappingResp{}
+
+	session, UserCollection, err := c.getSessionAndCollection()
+	if err != nil {
+		fmt.Printf("Error: %s", err)
+	}
+
+	defer session.Close()
+	err = UserCollection.Find(bson.M{"EMail": email}).One(&result)
+	if err != nil {
+		fmt.Printf("Error using Find in mgo: %s", err)
+	}
+	return result.Password
+}
+
+func (c *MongoConnection) GetAllUsers() []UserMappingResp {
 	session, UserCollection, err := c.getSessionAndCollection()
 	if err != nil {
 		fmt.Printf("Error: %s", err)

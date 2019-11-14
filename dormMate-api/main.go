@@ -52,6 +52,13 @@ func createRoutes(DM *handlers.DormMateAPI) Routes {
 		},
 
 		Route{
+			"GetSingleUser",
+			"GET",
+			routePrefix + "/singleUser",
+			DM.GetSingleUser,
+		},
+
+		Route{
 			"GetAllUsers",
 			"GET",
 			routePrefix + "/allUsers",
