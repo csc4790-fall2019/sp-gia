@@ -14,7 +14,6 @@ export class EditProfileComponent implements OnInit {
   public lastName = ""
   public bio = "";
   public exampleFormControlSelect1 = "";
-  public
   constructor() { }
 
   ngOnInit() {
