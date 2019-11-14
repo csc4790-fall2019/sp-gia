@@ -45,6 +45,13 @@ func createRoutes(DM *handlers.DormMateAPI) Routes {
 		},
 
 		Route{
+			"UpdateUser",
+			"PUT",
+			routePrefix + "/updateUser",
+			DM.UpdateUser,
+		},
+
+		Route{
 			"GetAllUsers",
 			"GET",
 			routePrefix + "/allUsers",

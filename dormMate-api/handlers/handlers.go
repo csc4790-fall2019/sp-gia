@@ -57,6 +57,10 @@ func (Dm *DormMateAPI) CreateNewUser(w http.ResponseWriter, r *http.Request) {
 	responseEncoder.Encode(&APIResponse{StatusMessage: "Ok"})
 }
 
+func (Dm *DormMateAPI) UpdateUser(w http.ResponseWriter, r *http.Request) {
+	return
+}
+
 func (Dm *DormMateAPI) GetAllUsers(w http.ResponseWriter, r *http.Request) {
 	allUsers := Dm.myConnection.GetUsers()
 

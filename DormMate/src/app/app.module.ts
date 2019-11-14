@@ -4,22 +4,20 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 //import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-
-
 @NgModule({
-  declarations: [
-    AppComponent,
-    routingComponents,
-  ],
+  declarations: [AppComponent, routingComponents],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule//,
+    FormsModule,
+    HttpClientModule
+
     //FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

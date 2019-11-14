@@ -71,7 +71,7 @@ func (c *MongoConnection) getSessionAndCollection() (session *mgo.Session, UserC
 	return
 }
 
-func (c *MongoConnection) AddUser(id string, firstName string, lastName string, email string, gender string, class int, hometown string, major string, smoke bool, alcohol bool, snore bool, bio string, bedtime bool, neatness bool) (err error) {
+func (c *MongoConnection) AddUser(id string, firstName string, lastName string, email string, gender string, class string, hometown string, major string, smoke bool, alcohol bool, snore bool, bio string, bedtime string, neatness bool) (err error) {
 	session, UserCollection, err := c.getSessionAndCollection()
 
 	if err == nil {
