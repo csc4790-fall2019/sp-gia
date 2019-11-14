@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+import { UserdataService } from '../../userdata.service';
 
 @Component({
   selector: 'app-create-account',
@@ -10,10 +12,17 @@ export class CreateAccountComponent implements OnInit {
   public email = "";
   public password1= "";
   public password2= "";
-  constructor() { }
+
+  //constructor(private userdataService: UserdataService) {}
 
   ngOnInit() {
   }
+
+  /*newUser(userdata){
+    console.log(userdata);
+
+    this.userdataService.registerUsers(userdata).subscribe((response) => {console.log(response)});
+  }*/
 
   checkCredentials(){
   	if(this.password1 == this.password2){

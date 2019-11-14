@@ -46,7 +46,7 @@ func (Dm *DormMateAPI) CreateNewUser(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	err := Dm.myConnection.AddUser(reqBodyStruct.ID, reqBodyStruct.FirstName, reqBodyStruct.LastName, reqBodyStruct.EMail, reqBodyStruct.Gender, reqBodyStruct.Class, reqBodyStruct.Hometown, reqBodyStruct.Major, reqBodyStruct.Smoke, reqBodyStruct.Alcohol, reqBodyStruct.Snore, reqBodyStruct.Bio, reqBodyStruct.Bedtime, reqBodyStruct.Neatness)
+	err := Dm.myConnection.AddUser(reqBodyStruct.ID, reqBodyStruct.EMail, reqBodyStruct.Password)
 
 	if err != nil {
 		w.WriteHeader(http.StatusConflict)

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+import { UserdataService } from '../../userdata.service';
 
 @Component({
   selector: 'app-primary',
@@ -9,10 +11,20 @@ export class PrimaryComponent implements OnInit {
 
   public email = "";
   public password = "";
+  public user: any = [];
 
-  constructor() {}
+  constructor(private userdataService: UserdataService) {}
 
   ngOnInit() {
+  }
+
+  getData(){
+    this.userdataService.getData().subscribe(data => {
+      for (const d of data as any) {
+        this.user.push({email: d.EMail, password: d.Password});
+      }
+      console.log(this.user);
+    });
   }
 
   loginUser() {

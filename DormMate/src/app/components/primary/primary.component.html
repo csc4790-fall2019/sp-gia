@@ -5,7 +5,7 @@
 <div class="mx-auto" style= "width: 400px">
   <h1 style="text-align:center"><strong>DormMate</strong></h1>
   <div class="container">
-    <form>
+    <form #userRegForm='ngForm' (ngSubmit)="userRegForm.form.valid && RegisterUser(userRegForm.value)">
       <div class="form-group">
         <label for="exampleInputEmail1">Email address:</label>
         <input [(ngModel)]="email" name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
@@ -24,7 +24,7 @@
       <button routerLink="/Match" routerLinkActive="active" type="submit" class="btn btn-primary" (click)="loginUser()">Login</button>
     </form>
 	<nav>
-		<a routerLink="/createAccount" routerLinkActive="active" class="btn btn-primary">Create Account</a>
+		<a routerLink="/createAccount" routerLinkActive="active" class="btn btn-primary" id="createUser" >Create Account</a>
 	</nav>
   </div>
 </div>

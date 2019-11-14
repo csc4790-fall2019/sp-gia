@@ -6,9 +6,10 @@ import (
 
 type UserMapping struct {
 	ID        string `json:"id" bson:"id"`
+	EMail     string `json:email bson:email`
+	Password  string `json:password bson:password`
 	FirstName string `json:fName bson:fName`
 	LastName  string `json:lName bson:lName`
-	EMail     string `json:email bson:email`
 	Gender    string `json:gender bson:gender`
 	Class     string `json:class bson:class`
 	Hometown  string `json:hometown bson:hometown`
@@ -31,9 +32,10 @@ type APIResponse struct {
 
 type UserMappingResp struct {
 	Id        bson.ObjectId `json:"id" bson:"_id"`
+	EMail     string        `json:email bson:email`
+	Password  string        `json:password bson:password`
 	FirstName string        `json:fName bson:fName`
 	LastName  string        `json:lName bson:lName`
-	EMail     string        `json:email bson:email`
 	Gender    string        `json:gender bson:gender`
 	Class     string        `json:class bson:class`
 	Hometown  string        `json:hometown bson:hometown`
