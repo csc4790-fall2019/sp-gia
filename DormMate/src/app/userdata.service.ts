@@ -14,7 +14,7 @@ export class UserdataService {
   }
 
   newUser(obj){
-    return this.httpClient.post(localUrl,obj, {
+    return this.http.post(localUrl,obj, {
       headers : new HttpHeaders({
         'Content-Type': 'appliation/json',
       })

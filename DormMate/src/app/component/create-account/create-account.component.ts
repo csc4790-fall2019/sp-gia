@@ -17,7 +17,7 @@ export class CreateAccountComponent implements OnInit {
 
   ngOnInit() {
   }
-  public userdata = email + password1;
+  public userdata = this.email + this.password1;
   register(userdata){
     console.log(this.userdata);
 
