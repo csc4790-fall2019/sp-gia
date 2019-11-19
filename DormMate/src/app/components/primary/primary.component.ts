@@ -38,7 +38,7 @@ export class PrimaryComponent implements OnInit {
   getData(){
     this.userdataService.getData().subscribe(data => {
       for (const d of data as any) {
-        this.userInfo.push({d});
+        this.userInfo.push({welecome: d.welcome});
       }
       console.log(this.userInfo);
       return this.userInfo;
