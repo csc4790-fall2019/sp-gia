@@ -18,7 +18,7 @@ export class CreateAccountComponent implements OnInit {
   ngOnInit() {
   }
   public userdata = email + password1;
-  register(this.userdata){
+  register(userdata){
     console.log(this.userdata);
 
     this.userdataService.newUser(this.userdata).subscribe((response) => {console.log(response)});
