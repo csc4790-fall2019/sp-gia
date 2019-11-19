@@ -29,7 +29,7 @@
         </div>
       </div>
       <button *ngIf="youremail.invalid || pass.invalid || conpass.invalid || conpass.errors.notEqual" id="registeruser" type="submit" class="btn btn-primary" (click)="checkCredentials()">Create Account</button>
-      <button *ngIf="!youremail.invalid && !pass.invalid && !conpass.invalid && !conpass.errors.notEqual" routerLink="/editProfile" id="registeruser" routerLinkActive="active" type="submit" class="btn btn-primary" (click)="checkCredentials()">Create Account</button>
+      <button *ngIf="!youremail.invalid && !pass.invalid && !conpass.invalid && !conpass.errors.notEqual" id="registeruser"  type="submit" class="btn btn-primary" (click)="checkCredentials()">Create Account</button>
     </form>
   </div>
 </div>

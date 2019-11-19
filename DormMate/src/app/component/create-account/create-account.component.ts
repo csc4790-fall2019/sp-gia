@@ -13,16 +13,16 @@ export class CreateAccountComponent implements OnInit {
   public password1= "";
   public password2= "";
 
-  //constructor(private userdataService: UserdataService) {}
+  constructor(private userdataService: UserdataService) {}
 
   ngOnInit() {
   }
+  public userdata = email + password1;
+  register(this.userdata){
+    console.log(this.userdata);
 
-  /*newUser(userdata){
-    console.log(userdata);
-
-    this.userdataService.registerUsers(userdata).subscribe((response) => {console.log(response)});
-  }*/
+    this.userdataService.newUser(this.userdata).subscribe((response) => {console.log(response)});
+  }
 
   checkCredentials(){
   	if(this.password1 == this.password2){
