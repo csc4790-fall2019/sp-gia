@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import 'rxjs/add/operator/map';
+import { map } from 'rxjs/operators';
 
 const localUrl = "https://localhost:8080/v0/newAccount";
 @Injectable({
