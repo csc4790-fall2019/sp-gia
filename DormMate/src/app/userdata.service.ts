@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import 'rxjs/add/operator/map';
+import { map } from 'rxjs/operators';
 
 const localUrl = "https://localhost:8080/v0/newAccount";
 @Injectable({
@@ -19,6 +18,8 @@ export class UserdataService {
       headers : new HttpHeaders({
         'Content-Type': 'appliation/json',
       })
-    }).map(data=> data);
+    }).pipe(
+      map(data=> data)
+    );
   }
 }
