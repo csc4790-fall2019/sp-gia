@@ -24,7 +24,7 @@
             Remember me!
           </label>
         </div>
-        <button routerLink="/Match" routerLinkActive="active" type="submit" class="btn btn-primary" (click)="getData()">Login</button>
+        <button routerLink="/match" routerLinkActive="active" type="submit" class="btn btn-primary" (click)="getData()">Login</button>
       </form>
     	<nav>
     		<a routerLink="/createAccount" routerLinkActive="active" class="btn btn-primary" id="createUser" >Create Account</a>
@@ -39,6 +39,6 @@
       <mat-card-subtitle>Full Name: {{user.firstName}} {{user.lastName}}</mat-card-subtitle>
     </mat-card-header>
     <img mat-card-image [src]="user.photoUrl" alt="My Facebook Photo">
-    <a routerLink="/Profile" routerLinkActive="active" class="btn btn-primary" id="createUser" >Continue</a>
+    <a routerLink="/profile" routerLinkActive="active" class="btn btn-primary" id="createUser" >Continue</a>
   </mat-card>
 </div>

@@ -13,9 +13,9 @@ const routes: Routes = [
 	{path: 'admin', component: AdminComponent},
 	{path: '', component: PrimaryComponent},
 	{path: 'createAccount', component: CreateAccountComponent},
-	{path: 'Match', component: MatchComponent},
+	{path: 'match', component: MatchComponent},
 	{path: 'editProfile', component: EditProfileComponent},
-	{path: 'Profile', component: ProfileComponent},
+	{path: 'profile', component: ProfileComponent},
 	{path: 'messages', component: MessagingComponent}
 ];
 
