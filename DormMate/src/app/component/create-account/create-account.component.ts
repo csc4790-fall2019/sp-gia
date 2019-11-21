@@ -21,7 +21,7 @@ export class CreateAccountComponent implements OnInit {
     email: this.email,
     password: this.password1
   };
-  public userdata = JSON.stringify(change);
+  public userdata = JSON.stringify(this.change);
   register(userdata){
     console.log(this.userdata);
 
