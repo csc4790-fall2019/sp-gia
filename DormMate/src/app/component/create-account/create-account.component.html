@@ -29,9 +29,9 @@
             <div *ngIf="conpass.errors.notEqual" class="alert-danger">Password does not match</div>
           </div>
         </div>
-        <button *ngIf="youremail.invalid || pass.invalid || conpass.invalid" id="registeruser" type="submit" class="btn btn-primary" (click)="checkCredentials()">Create Account</button>
-        <button *ngIf="!youremail.invalid && !pass.invalid && !conpass.invalid" routerLink="/editProfile" id="registeruser" routerLinkActive="active" type="submit" class="btn btn-primary" (click)="checkCredentials()">Create Account</button>
-      </form>
-    </div>
+      </div>
+      <button *ngIf="youremail.invalid || pass.invalid || conpass.invalid || conpass.errors.notEqual" id="registeruser" type="submit" class="btn btn-primary" (click)="register()">Create Account</button>
+      <button *ngIf="!youremail.invalid && !pass.invalid && !conpass.invalid && !conpass.errors.notEqual" id="registeruser"  type="submit" class="btn btn-primary" (click)="register()">Create Account</button>
+    </form>
   </div>
 </body>

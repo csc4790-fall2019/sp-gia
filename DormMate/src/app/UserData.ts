@@ -13,4 +13,6 @@ export interface UserData{
   Bedtime: string;
   Snore: boolean;
   Bio: string;
+  Likes: string[];
+  Matches: string[];
 }
