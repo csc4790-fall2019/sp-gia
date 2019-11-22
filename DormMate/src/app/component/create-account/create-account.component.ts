@@ -9,18 +9,19 @@ import { UserdataService } from '../../userdata.service';
 })
 export class CreateAccountComponent implements OnInit {
 
-  public email = "";
-  public password1= "";
-  public password2= "";
+  public youremail = "";
+  public pass= "";
+  public conpass= "";
+  public change = {
+    email: this.youremail,
+    password: this.pass
+  };
 
   constructor(private userdataService: UserdataService) {}
 
   ngOnInit() {
   }
-  public change = {
-    email: this.email,
-    password: this.password1
-  };
+
   public userdata = JSON.stringify(this.change);
   register(userdata){
     console.log(this.userdata);
@@ -29,7 +30,7 @@ export class CreateAccountComponent implements OnInit {
   }
 
   checkCredentials(){
-  	if(this.password1 == this.password2){
+  	if(this.pass == this.conpass){
   		console.log("Account Creation Successfull");
   	} else{
       console.log("Passwords do not match");
