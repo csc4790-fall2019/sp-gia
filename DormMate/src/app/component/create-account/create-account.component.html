@@ -1,7 +1,6 @@
 <!doctype html>
 
 <!-- Login Boxes -->
-<body>
   <div class="mx-auto" style= "width: 400px">
     <h1 style="text-align:center"><strong>DormMate</strong></h1>
     <div class="container form-group">
@@ -29,9 +28,8 @@
             <div *ngIf="conpass.errors.notEqual" class="alert-danger">Password does not match</div>
           </div>
         </div>
+        <button *ngIf="youremail.invalid || pass.invalid || conpass.invalid ||conpass.errors.notEqual" id="registeruser" type="submit" class="btn btn-primary" (click)="checkCredentials()">Create Account</button>
+        <button *ngIf="!youremail.invalid && !pass.invalid && !conpass.invalid && !conpass.invalid && !conpass.errors.notEqual"  id="registeruser" type="submit" class="btn btn-primary" (click)="checkCredentials()">Create Account</button>
+      </form>
       </div>
-      <button *ngIf="youremail.invalid || pass.invalid || conpass.invalid || conpass.errors.notEqual" id="registeruser" type="submit" class="btn btn-primary" (click)="register()">Create Account</button>
-      <button *ngIf="!youremail.invalid && !pass.invalid && !conpass.invalid && !conpass.errors.notEqual" id="registeruser"  type="submit" class="btn btn-primary" (click)="register()">Create Account</button>
-    </form>
   </div>
-</body>
