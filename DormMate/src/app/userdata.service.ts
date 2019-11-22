@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
-const localUrl = "https://localhost:8080/v0/newAccount";
+const localUrl = "https://127.0.0.1:8080/v0/newAccount";
 @Injectable({
   providedIn: 'root'
 })

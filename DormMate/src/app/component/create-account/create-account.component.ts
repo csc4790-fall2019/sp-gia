@@ -9,12 +9,12 @@ import { UserdataService } from '../../userdata.service';
 })
 export class CreateAccountComponent implements OnInit {
 
-  public youremail = "";
-  public pass= "";
-  public conpass= "";
+  public email = "";
+  public password1= "";
+  public password2= "";
   public change = {
-    email: this.youremail,
-    password: this.pass
+    email: "afreay@villanova.edu",
+    password: "test123"
   };
 
   constructor(private userdataService: UserdataService) {}
@@ -30,7 +30,7 @@ export class CreateAccountComponent implements OnInit {
   }
 
   checkCredentials(){
-  	if(this.pass == this.conpass){
+  	if(this.password1 == this.password2){
   		console.log("Account Creation Successfull");
   	} else{
       console.log("Passwords do not match");
