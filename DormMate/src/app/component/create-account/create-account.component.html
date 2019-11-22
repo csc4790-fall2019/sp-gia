@@ -1,6 +1,7 @@
 <!doctype html>
 
 <!-- Login Boxes -->
+<<<<<<< HEAD
 <div class="mx-auto" style= "width: 400px">
   <h1 style="text-align:center"><strong>DormMate</strong></h1>
   <div class="container form-group">
@@ -11,6 +12,19 @@
         <input [(ngModel)]="email" #youremail="ngModel" name="email" type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter email" [ngClass]="{ 'is-invalid': userRegForm.submitted && youremail.invalid }" required>
         <div *ngIf="userRegForm.submitted && youremail.invalid" class="invalid-feedback">
           <div *ngIf="youremail.errors.required" class="alert-danger">Email is required</div>
+=======
+  <div class="mx-auto" style= "width: 400px">
+    <h1 style="text-align:center"><strong>DormMate</strong></h1>
+    <div class="container form-group">
+      <form #userRegForm='ngForm' (ngSubmit)="userRegForm.form.valid && RegisterUser(userRegForm.value)" novalidate>
+        <small id="emailHelp" class="form-text text-muted">All fields required</small>
+        <div class="form-group">
+          <label for="InputEmail">Email address:</label>
+          <input [(ngModel)]="email" #youremail="ngModel" name="email" type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter email" [ngClass]="{ 'is-invalid': userRegForm.submitted && youremail.invalid }" required>
+          <div *ngIf="userRegForm.submitted && youremail.invalid" class="invalid-feedback">
+            <div *ngIf="youremail.errors.required" class="alert-danger">Email is required</div>
+          </div>
+>>>>>>> 721cc8571bb3530dbac9f08345790a854323df92
         </div>
       </div>
       <div class="form-group">
@@ -27,9 +41,16 @@
           <div *ngIf="conpass.errors.required" class="alert-danger">Confirm Password is required</div>
           <div *ngIf="conpass.errors.notEqual" class="alert-danger">Password does not match</div>
         </div>
+        <button *ngIf="youremail.invalid || pass.invalid || conpass.invalid ||conpass.errors.notEqual" id="registeruser" type="submit" class="btn btn-primary" (click)="checkCredentials()">Create Account</button>
+        <button *ngIf="!youremail.invalid && !pass.invalid && !conpass.invalid && !conpass.invalid && !conpass.errors.notEqual"  id="registeruser" type="submit" class="btn btn-primary" (click)="checkCredentials()">Create Account</button>
+      </form>
       </div>
+<<<<<<< HEAD
     </div>
     <button *ngIf="youremail.invalid || pass.invalid || conpass.invalid || conpass.errors.notEqual" id="registeruser" type="submit" class="btn btn-primary" (click)="register()">Create Account</button>
     <button *ngIf="!youremail.invalid && !pass.invalid && !conpass.invalid && !conpass.errors.notEqual" id="registeruser"  type="submit" class="btn btn-primary" (click)="register()">Create Account</button>
   </form>
 </div>
+=======
+  </div>
+>>>>>>> 721cc8571bb3530dbac9f08345790a854323df92
