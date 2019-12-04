@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { Component, OnInit, NgZone } from '@angular/core';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { UserdataService } from '../../userdata.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-account',
@@ -16,17 +17,34 @@ export class CreateAccountComponent implements OnInit {
     email: "afreay@villanova.edu",
     password: "test123"
   };
+  userForm: FormGroup;
+  userArr: any = [];
 
-  constructor(private userdataService: UserdataService) {}
+  constructor(
+    private userdataService: UserdataService,
+    public fb: FormBuilder,
+    private ngZone: NgZone,
+    private router: Router
+  ) {}
 
   ngOnInit() {
+    this.addUser();
   }
 
-  public userdata = JSON.stringify(this.change);
-  register(userdata){
-    console.log(this.userdata);
+  addUser() {
+    this.userForm = this.fb.group({
+      EMail: [''],
+      Password: ['']
+    })
+  }
 
-    this.userdataService.newUser(this.userdata).subscribe((response) => {console.log(response)});
+  //public userdata = JSON.stringify(this.change);
+  register(){
+    this.userdataService.newUser(this.userForm.value).subscribe(res => {
+      console.log('Account Created')
+      this.ngZone.run(() => this.router.navigateByUrl('/editProfile'))
+    });
+    //this.userdataService.newUser(this.userdata).subscribe((response) => {console.log(response)});
   }
 
   checkCredentials(){

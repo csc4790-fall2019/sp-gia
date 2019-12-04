@@ -1,4 +1,4 @@
-export interface UserData{
+export class UserData{
   Id: string;
   EMail: string;
   Password: string;
