@@ -4,7 +4,7 @@
 <div class="mx-auto" style= "width: 400px">
   <h1 style="text-align:center"><strong>DormMate</strong></h1>
   <div class="container form-group">
-    <form [formGroup]="userForm" #userRegForm='ngForm' (ngSubmit)="register()" novalidate>
+    <form [formGroup]="userForm" (ngSubmit)="register()" novalidate>
       <small id="emailHelp" class="form-text text-muted">All fields required</small>
       <div class="form-group">
         <label for="InputEmail">Email address:</label>
