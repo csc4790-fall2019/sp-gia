@@ -31,24 +31,21 @@ export class PrimaryComponent implements OnInit {
       this.loggedIn = (user != null);
       console.log(this.user);
     });
+    this.loadUsers();
   }
   //Get request stuff
   //constructor(private userdataService: UserdataService) {}
 
-  getData(){
-    this.userdataService.getData().subscribe(data => {
-      for (const d of data as any) {
-        this.userInfo.push({welecome: d.welcome});
-      }
-      console.log(this.userInfo);
-      return this.userInfo;
-    });
+  loadUsers() {
+    return this.userdataService.getData().subscribe((data: {}) => {
+      this.userInfo = data;
+    })
+    console.log(this.userInfo)
   }
 
   loginUser() {
    	// body...
     //console.log(event);
-    //people = JSON.parse(getData());
 
    	if((this.email=="iosuagwu@villanova.edu") && (this.password == "william")){
    		console.log("Welcome!");
