@@ -37,7 +37,8 @@ export class EditProfileComponent implements OnInit {
         Hometown: [data.Hometown],
         Major: [data.Major],
         Bedtime: [data.Bedtime],
-        Bio: [data.Bio]
+        Bio: [data.Bio],
+        Gender: [data.Gender]
       })
     });
   }
@@ -54,7 +55,8 @@ export class EditProfileComponent implements OnInit {
       Hometown: [''],
       Major: [''],
       Bedtime: [''],
-      Bio: ['']
+      Bio: [''],
+      Gender: ['']
     });
   }
 

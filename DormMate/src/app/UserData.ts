@@ -2,8 +2,10 @@ export class UserData{
   Id: string;
   EMail: string;
   Password: string;
+  VUID: string;
   firstName: string;
   lastName: string;
+  Gender: string;
   Class: string;
   Hometown: string;
   Major: string;

@@ -34,7 +34,8 @@ export class CreateAccountComponent implements OnInit {
   addUser() {
     this.userForm = this.fb.group({
       EMail: [''],
-      Password: ['']
+      Password: [''],
+      VUID: ['']
     })
   }
 

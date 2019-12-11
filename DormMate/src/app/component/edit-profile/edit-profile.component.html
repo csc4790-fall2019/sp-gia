@@ -18,9 +18,9 @@
       <div class="col" >
         <div class="card" style="width: 40rem;">
           <div class="card-body">
-            <form [formGroup]="updateIssueForm" (ngSubmit)="submitForm()" novalidate>
-              <input class="card-header" [(ngModel)]="firstName" name="firstName" type="text" placeholder="Enter First Name">
-              <input class="card-header" [(ngModel)]="lastName" name="lastName" type="text" placeholder="Enter Last Name">
+            <form [formGroup]="updateUser" (ngSubmit)="submitForm()" novalidate>
+              <input formControlName="firstName" class="card-header" name="firstName" type="text" placeholder="Enter First Name">
+              <input formControlName="lastName" class="card-header" name="lastName" type="text" placeholder="Enter Last Name">
               <fieldset class="form-group">
                 <div class="row">
                   <legend class="col-form-label col-sm-4 pt-0">Gender</legend>
@@ -35,7 +35,7 @@
                     </div>
                     <div class="form-check form-check-inline col-sm-4">
                       <input class="form-check-input" type="radio" name="Gender" id="snoreOption3" value="option3">
-                      <label class="form-check-label" for="snoreOption3">Rather not say</label>
+                      <label class="form-check-label" for="snoreOption3">Other</label>
                     </div>
                   </div>
                 </div>
@@ -52,11 +52,11 @@
               </div>
               <div class="form-group row">
                 <label for="inputHometown" class="col-sm-4 col-form-label">Hometown:</label>
-                <input formControlName="Hometown" [(ngModel)]="hometown" name="hometown" type="text" class="form-control col" id="inputHometown" placeholder="Enter Hometown">
+                <input formControlName="Hometown" name="hometown" type="text" class="form-control col" id="inputHometown" placeholder="Enter Hometown">
               </div>
               <div class="form-group row">
                 <label for="inputMajor" class="col-sm-4 col-form-label">Major:</label>
-                <input [(ngModel)]="major" name="major" type="text" class="form-control col" id="inputMajor" placeholder="Enter Major">
+                <input formControlName="Major" name="major" type="text" class="form-control col" id="inputMajor" placeholder="Enter Major">
               </div>
               <fieldset class="form-group">
                 <div class="row">
@@ -94,30 +94,18 @@
                   <div class="col">
                     <div class="form-check form-check-inline col-sm-3">
                       <input class="form-check-input" type="radio" name="Neat" id="neatOption1" value="option1">
-                      <label class="form-check-label" for="neatOption1">1</label>
+                      <label class="form-check-label" for="neatOption1">Yes</label>
                     </div>
                     <div class="form-check form-check-inline col-sm-3">
                       <input class="form-check-input" type="radio" name="Neat" id="neatOption2" value="option2">
-                      <label class="form-check-label" for="neatOption2">2</label>
-                    </div>
-                    <div class="form-check form-check-inline col-sm-3">
-                      <input class="form-check-input" type="radio" name="Neat" id="neatOption3" value="option2">
-                      <label class="form-check-label" for="neatOption3">3</label>
-                    </div>
-                    <div class="form-check form-check-inline col-sm-3">
-                      <input class="form-check-input" type="radio" name="Neat" id="neatOption4" value="option2">
-                      <label class="form-check-label" for="neatOption4">4</label>
-                    </div>
-                    <div class="form-check form-check-inline col-sm-3">
-                      <input class="form-check-input" type="radio" name="Neat" id="neatOption5" value="option2">
-                      <label class="form-check-label" for="neatOption5">5</label>
+                      <label class="form-check-label" for="neatOption2">No</label>
                     </div>
                   </div>
                 </div>
               </fieldset>
               <div class="form-group row">
                 <label for="inputBedtime" class="col-sm-4 col-form-label">Bedtime:</label>
-                <input formControlName="Bedtime" [(ngModel)]="bedtime" name="major" type="text" class="form-control col" id="inputBedtime" placeholder="Enter Average Bedtime">
+                <input formControlName="Bedtime" name="major" type="text" class="form-control col" id="inputBedtime" placeholder="Enter Average Bedtime">
               </div>
               <fieldset class="form-group">
                 <div class="row">
@@ -136,7 +124,7 @@
               </fieldset>
               <div class="form-group">
                 <label for="bioInput">Write a Bio!</label>
-                <textarea formControlName="Bio" [(ngModel)]="bio" name="bio" class="form-control" id="bioInput" rows="3"></textarea>
+                <textarea formControlName="Bio" name="bio" class="form-control" id="bioInput" rows="3"></textarea>
               </div>
               <div class="align-items-center">
                 <a type="submit" class="btn btn-primary">Confirm Edits!</a>
