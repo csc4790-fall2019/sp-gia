@@ -1,4 +1,4 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Component, OnInit, NgZone, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { UserdataService } from '../../userdata.service';
 import { Router } from '@angular/router';
@@ -48,12 +48,10 @@ export class CreateAccountComponent implements OnInit {
     //this.userdataService.newUser(this.userdata).subscribe((response) => {console.log(response)});
   }
 
-  checkCredentials(){
-  	if(this.password1 == this.password2){
-  		console.log("Account Creation Successfull");
-  	} else{
-      console.log("Passwords do not match");
-    }
+  @Output() sendID = new EventEmitter<string>();
+
+  sendMessage() {
+    this.sendID.emit(userForm.VUID);
   }
 
 }

@@ -19,7 +19,7 @@ export class EditProfileComponent implements OnInit {
   public firstName = "";
   public lastName = ""
   public bio = "";
-  public exampleFormControlSelect1 = "";
+  public VUID = "";
 
   constructor(
     private actRoute: ActivatedRoute,
@@ -41,6 +41,10 @@ export class EditProfileComponent implements OnInit {
         Gender: [data.Gender]
       })
     });
+  }
+
+  receiveMessage($event) {
+    this.VUID=$event;
   }
 
   ngOnInit() {
