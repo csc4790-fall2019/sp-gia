@@ -17,10 +17,10 @@
 
       <div class="col" >
         <div class="card" style="width: 40rem;">
-          <input class="card-header" [(ngModel)]="firstName" name="firstName" type="text" placeholder="Enter First Name">
-          <input class="card-header" [(ngModel)]="lastName" name="lastName" type="text" placeholder="Enter Last Name">
           <div class="card-body">
-            <form>
+            <form [formGroup]="updateIssueForm" (ngSubmit)="submitForm()" novalidate>
+              <input class="card-header" [(ngModel)]="firstName" name="firstName" type="text" placeholder="Enter First Name">
+              <input class="card-header" [(ngModel)]="lastName" name="lastName" type="text" placeholder="Enter Last Name">
               <fieldset class="form-group">
                 <div class="row">
                   <legend class="col-form-label col-sm-4 pt-0">Gender</legend>
@@ -42,7 +42,7 @@
               </fieldset>
               <div class="form-group row">
                 <label for="exampleFormControlSelect1" class="col-sm-4">Class:</label>
-                <select class="form-control col-sm-7" id="exampleFormControlSelect1" [(ngModel)]="exampleFormControlSelect1">
+                <select formControlName="Class" class="form-control col-sm-7" id="exampleFormControlSelect1" [(ngModel)]="exampleFormControlSelect1">
                   <option>2020</option>
                   <option>2021</option>
                   <option>2022</option>
@@ -52,7 +52,7 @@
               </div>
               <div class="form-group row">
                 <label for="inputHometown" class="col-sm-4 col-form-label">Hometown:</label>
-                <input [(ngModel)]="hometown" name="hometown" type="text" class="form-control col" id="inputHometown" placeholder="Enter Hometown">
+                <input formControlName="Hometown" [(ngModel)]="hometown" name="hometown" type="text" class="form-control col" id="inputHometown" placeholder="Enter Hometown">
               </div>
               <div class="form-group row">
                 <label for="inputMajor" class="col-sm-4 col-form-label">Major:</label>
@@ -117,7 +117,7 @@
               </fieldset>
               <div class="form-group row">
                 <label for="inputBedtime" class="col-sm-4 col-form-label">Bedtime:</label>
-                <input [(ngModel)]="bedtime" name="major" type="text" class="form-control col" id="inputBedtime" placeholder="Enter Average Bedtime">
+                <input formControlName="Bedtime" [(ngModel)]="bedtime" name="major" type="text" class="form-control col" id="inputBedtime" placeholder="Enter Average Bedtime">
               </div>
               <fieldset class="form-group">
                 <div class="row">
@@ -134,17 +134,17 @@
                   </div>
                 </div>
               </fieldset>
+              <div class="form-group">
+                <label for="bioInput">Write a Bio!</label>
+                <textarea formControlName="Bio" [(ngModel)]="bio" name="bio" class="form-control" id="bioInput" rows="3"></textarea>
+              </div>
+              <div class="align-items-center">
+                <a type="submit" class="btn btn-primary">Confirm Edits!</a>
+              </div>
             </form>
-            <div class="form-group">
-              <label for="bioInput">Write a Bio!</label>
-              <textarea  [(ngModel)]="bio" name="bio" class="form-control" id="bioInput" rows="3"></textarea>
-            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="align-items-center">
-    <a routerLink="/Profile" routerLinkActive="active" class="btn btn-primary">Confirm Edits!</a>
     </div>
   </div>
 </body>
