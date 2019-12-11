@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserdataService } from './userdata.service';
 
 import { AppRoutingModule, routingComponents } from './app-routing.module';
@@ -34,7 +34,8 @@ export function provideConfig() {
     SocialLoginModule,
     MatIconModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    ReactiveFormsModule
     //FontAwesomeModule
   ],
   providers: [

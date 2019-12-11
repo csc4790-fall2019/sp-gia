@@ -39,6 +39,15 @@ export class UserdataService {
     )
   }
 
+  // GET specific user
+  getUser(id): Observable<UserData> {
+    return this.http.get<UserData>(localUrl + "/" + id)
+    .pipe(
+      retry(1),
+      catchError(this.errorHandl)
+    )
+  }
+
   // PUT
   UpdateUser(id, data): Observable<UserData> {
     return this.http.put<UserData>(localUrl + id, JSON.stringify(data), this.httpOptions)
