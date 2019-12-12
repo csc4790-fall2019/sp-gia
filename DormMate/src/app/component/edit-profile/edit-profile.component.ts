@@ -28,7 +28,7 @@ export class EditProfileComponent implements OnInit {
     private ngZone: NgZone,
     private router: Router
   ) {
-    var id = this.actRoute.snapshot.paramMap.get('Id');
+    var id = this.actRoute.snapshot.paramMap.get('id');
     this.userdataService.getUser(id).subscribe((data) => {
       this.updateUser = this.fb.group({
         firstName: [data.firstName],
@@ -69,7 +69,7 @@ export class EditProfileComponent implements OnInit {
   }
 
   submitForm(){
-    var id = this.actRoute.snapshot.paramMap.get('Id');
+    var id = this.actRoute.snapshot.paramMap.get('id');
     this.userdataService.UpdateUser(id, this.updateUser.value).subscribe(res => {
       this.ngZone.run(() => this.router.navigateByUrl('/profile'))
     })
