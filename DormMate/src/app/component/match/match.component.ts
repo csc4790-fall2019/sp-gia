@@ -12,6 +12,7 @@ export class MatchComponent implements OnInit {
 
   usersList: any = [];
   num: number = 2;
+  match: boolean = false;
 
   constructor(
     private actRoute: ActivatedRoute,
@@ -33,13 +34,12 @@ export class MatchComponent implements OnInit {
       this.ngZone.run(() => this.router.navigateByUrl('/messages'))
     }
     this.num++;
+    if((this.num ==4) || (this.num == 5) || (this.num == 16)){
+      this.match = true;
+    }
+    else{
+      this.match = false;
+    }
   }
-
-  /*showMatch(id){
-    this.userdataService.getUser(id).subscribe((data) => {
-      this.usersList = data;
-    });
-  }*/
-
 
 }
