@@ -13,6 +13,22 @@ export class MatchComponent implements OnInit {
   usersList: any = [];
   num: number = 2;
   match: boolean = false;
+  image: string = [
+    "https://villanova.com/images/2019/10/2/9_27_19_186.jpg?width=300",
+    "https://villanova.com/images/2019/10/2/9_27_19_221.jpg?width=300",
+    "https://villanova.com/images/2019/10/2/9_27_19_194.jpg?width=300",
+    "https://villanova.com/images/2019/10/2/9_27_19_188.jpg?width=300",
+    "https://villanova.com/images/2019/10/2/9_27_19_195.jpg?width=300",
+    "https://villanova.com/images/2019/10/2/9_27_19_200.jpg?width=300",
+    "https://villanova.com/images/2019/10/2/9_27_19_220.jpg?width=300",
+    "https://villanova.com/images/2019/10/2/9_27_19_203.jpg?width=300",
+    "https://villanova.com/images/2019/10/2/9_27_19_212.jpg?width=300",
+    "https://villanova.com/images/2019/10/2/9_27_19_214.jpg?width=300",
+    "https://villanova.com/images/2018/10/4/Becky_Ducar.jpg?width=300",
+    "https://villanova.com/images/2019/10/2/9_27_19_223.jpg?width=300",
+    "https://villanova.com/images/2019/10/2/9_27_19_217.jpg?width=300",
+    "https://villanova.com/images/2019/10/2/9_27_19_206.jpg?width=300",
+  ];
 
   constructor(
     private actRoute: ActivatedRoute,
