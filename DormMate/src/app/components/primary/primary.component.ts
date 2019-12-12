@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { UserdataService } from '../../userdata.service';
 import { AuthService, FacebookLoginProvider, SocialUser } from 'angularx-social-login';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-primary',
@@ -16,7 +17,12 @@ export class PrimaryComponent implements OnInit {
   public loggedIn: boolean;
   public userInfo: any = [];
   //Facebook API sign in stuff
-  constructor(private authService: AuthService, private userdataService: UserdataService) { }
+  constructor(
+    private authService: AuthService,
+    private userdataService: UserdataService,
+    private ngZone: NgZone,
+    private router: Router
+  ) { }
 
   signInWithFB(): void {
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
@@ -46,6 +52,12 @@ export class PrimaryComponent implements OnInit {
   loginUser() {
    	// body...
     //console.log(event);
+    for(var em of this.userInfo) {
+      if((this.email == (em.EMail)) && (this.password==(em.Password)))
+        this.ngZone.run(() => this.router.navigateByUrl('/profile'));
+      else
+        console.log("Incorrect Email or Password! Try Again");
+    }
 
    	if((this.email=="iosuagwu@villanova.edu") && (this.password == "william")){
    		console.log("Welcome!");

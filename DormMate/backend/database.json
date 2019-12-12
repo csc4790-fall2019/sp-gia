@@ -1,0 +1,55 @@
+{
+  "Users": [
+    {
+      "EMail": "gwenn@villanova.edu",
+      "Password": "passwrd",
+      "VUID": "01555617",
+      "firstName": "Gabby",
+      "lastName": "Wenn",
+      "Gender": "Female",
+      "Class": "2020",
+      "Hometown": "Seattle",
+      "Major": "Computer Science",
+      "Smoker": false,
+      "Alcohol": false,
+      "Neatness": true,
+      "Bedtime": "11pm",
+      "Snore": false,
+      "Bio": "I play softball. Number 2 on the field, number 1 in your heart."
+    },
+    {
+      "EMail": "aamarillas@villanova.edu",
+      "Password": "wordpass",
+      "VUID": "11111111",
+      "firstName": "Anissa",
+      "lastName": "Amarillas",
+      "Gender": "Female",
+      "Class": "2021",
+      "Hometown": "Los Angeles",
+      "Major": "Education",
+      "Smoker": false,
+      "Alcohol": false,
+      "Neatness": true,
+      "Bedtime": "9pm",
+      "Snore": true,
+      "Bio": "I understand Spanish."
+    },
+    {
+      "EMail": "jolivar1@villanova.edu",
+      "Password": "passpass",
+      "VUID": "22222222",
+      "firstName": "Jordan",
+      "lastName": "Olivarez",
+      "Gender": "Female",
+      "Class": "2020",
+      "Hometown": "Riverside",
+      "Major": "Education",
+      "Smoker": false,
+      "Alcohol": true,
+      "Neatness": true,
+      "Bedtime": "1am",
+      "Snore": true,
+      "Bio": "I once played for the Mexican National Softball Team."
+    }
+  ]
+}

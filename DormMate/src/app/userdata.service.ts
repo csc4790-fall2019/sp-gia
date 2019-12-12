@@ -5,7 +5,8 @@ import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { UserData } from './UserData';
 
-const localUrl = "http://127.0.0.1:8080/v0/newAccount";
+//const localUrl = "http://127.0.0.1:8080/v0/newAccount";
+const localUrl = "http://localhost:3000";
 @Injectable({
   providedIn: 'root'
 })

@@ -38,7 +38,11 @@ export class EditProfileComponent implements OnInit {
         Major: [data.Major],
         Bedtime: [data.Bedtime],
         Bio: [data.Bio],
-        Gender: [data.Gender]
+        Gender: [data.Gender],
+        Smoker: [data.Smoker],
+        Alcohol: [data.Alcohol],
+        Neatness: [data.Neatness],
+        Snore: [data.Snore]
       })
     });
   }
@@ -56,7 +60,11 @@ export class EditProfileComponent implements OnInit {
       Major: [''],
       Bedtime: [''],
       Bio: [''],
-      Gender: ['']
+      Gender: [''],
+      Smoker: [''],
+      Alcohol: [''],
+      Neatness: [''],
+      Snore: ['']
     });
   }
 
