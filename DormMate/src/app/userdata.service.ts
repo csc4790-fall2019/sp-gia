@@ -51,7 +51,7 @@ export class UserdataService {
 
   // PUT
   UpdateUser(id, data): Observable<UserData> {
-    return this.http.put<UserData>(localUrl + id, JSON.stringify(data), this.httpOptions)
+    return this.http.put<UserData>(localUrl + "/" + id, JSON.stringify(data), this.httpOptions)
     .pipe(
       retry(1),
       catchError(this.errorHandl)

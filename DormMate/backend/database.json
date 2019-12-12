@@ -55,9 +55,18 @@
       "Bio": "I once played for the Mexican National Softball Team."
     },
     {
-      "EMail": "iosuagwu@villanova.edu",
-      "Password": "william",
-      "VUID": "01662668",
+      "firstName": "Ikechukwu",
+      "lastName": "Osuagwu",
+      "Class": "2020",
+      "Hometown": "Wilmington",
+      "Major": "Computer Science",
+      "Bedtime": "2am",
+      "Bio": "Apples to Apples",
+      "Gender": "Male",
+      "Smoker": "false",
+      "Alcohol": "false",
+      "Neatness": "false",
+      "Snore": "false",
       "id": 4
     }
   ]
