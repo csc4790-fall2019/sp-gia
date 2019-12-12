@@ -68,10 +68,7 @@ export class EditProfileComponent implements OnInit {
       Smoker: [''],
       Alcohol: [''],
       Neatness: [''],
-      Snore: [''],
-      EMail: [this.updateUser.Email],
-      Password: [this.updateUser.Password],
-      VUID: [this.updateUser.VUID]
+      Snore: ['']
     });
   }
 

@@ -25,21 +25,8 @@ export class ProfileComponent implements OnInit {
     private actRoute: ActivatedRoute,
   ) {
     var id = this.actRoute.snapshot.paramMap.get('id');
-    this.userdataService.getUser(id).subscribe((data) => {
-      this.updateUser = this.fb.group({
-        firstName: [data.firstName],
-        lastName: [data.lastName],
-        Class: [data.Class],
-        Hometown: [data.Hometown],
-        Major: [data.Major],
-        Bedtime: [data.Bedtime],
-        Bio: [data.Bio],
-        Gender: [data.Gender],
-        Smoker: [data.Smoker],
-        Alcohol: [data.Alcohol],
-        Neatness: [data.Neatness],
-        Snore: [data.Snore]
-      })
+    this.userdataService.getUser(1).subscribe((data) => {
+      this.usersList = data;
     });
    }
 
