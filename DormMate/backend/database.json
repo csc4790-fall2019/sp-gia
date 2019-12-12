@@ -1,6 +1,7 @@
 {
   "Users": [
     {
+      "id": 1,
       "EMail": "gwenn@villanova.edu",
       "Password": "passwrd",
       "VUID": "01555617",
@@ -18,6 +19,7 @@
       "Bio": "I play softball. Number 2 on the field, number 1 in your heart."
     },
     {
+      "id": 2,
       "EMail": "aamarillas@villanova.edu",
       "Password": "wordpass",
       "VUID": "11111111",
@@ -35,6 +37,7 @@
       "Bio": "I understand Spanish."
     },
     {
+      "id": 3,
       "EMail": "jolivar1@villanova.edu",
       "Password": "passpass",
       "VUID": "22222222",
@@ -50,6 +53,12 @@
       "Bedtime": "1am",
       "Snore": true,
       "Bio": "I once played for the Mexican National Softball Team."
+    },
+    {
+      "EMail": "iosuagwu@villanova.edu",
+      "Password": "william",
+      "VUID": "01662668",
+      "id": 4
     }
   ]
 }
