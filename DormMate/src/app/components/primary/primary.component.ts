@@ -32,12 +32,12 @@ export class PrimaryComponent implements OnInit {
     this.authService.signOut();
   }
   ngOnInit() {
+    this.loadUsers();
     this.authService.authState.subscribe((user) => {
       this.user = user;
       this.loggedIn = (user != null);
       console.log(this.user);
     });
-    this.loadUsers();
   }
   //Get request stuff
   //constructor(private userdataService: UserdataService) {}
@@ -46,7 +46,6 @@ export class PrimaryComponent implements OnInit {
     return this.userdataService.getData().subscribe((data: {}) => {
       this.userInfo = data;
     })
-    console.log(this.userInfo)
   }
 
   loginUser() {
@@ -58,6 +57,7 @@ export class PrimaryComponent implements OnInit {
       else
         console.log("Incorrect Email or Password! Try Again");
     }
+    console.log(this.email);
 
    	if((this.email=="iosuagwu@villanova.edu") && (this.password == "william")){
    		console.log("Welcome!");

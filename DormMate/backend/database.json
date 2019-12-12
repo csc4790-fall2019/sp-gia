@@ -207,6 +207,7 @@
       "lastName": "Ducar",
       "Gender": "Female",
       "Class": "2020",
+<<<<<<< HEAD
       "Hometown": "Pheonix",
       "Major": "Nursing",
       "Smoker": true,
@@ -270,5 +271,21 @@
       "Snore": false,
       "Bio": "I used to row."
     },
+=======
+      "Hometown": "Wilmington",
+      "Major": "Comp Sci",
+      "Bedtime": "2am",
+      "Bio": "Apples to Apples",
+      "Gender": "Male",
+      "Smoker": "false",
+      "Alcohol": "false",
+      "Neatness": "false",
+      "Snore": "false",
+      "EMail": "iosuagwu@villanova.edu",
+      "Password": "qwerty",
+      "VUID": "01662668",
+      "id": 4
+    }
+>>>>>>> 4108d644f7f2be2bbfe88caa3bf1792bc3e8e726
   ]
 }

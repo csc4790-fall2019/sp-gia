@@ -8,7 +8,7 @@
       <mat-card-title><h1 style="text-align:center"><strong>DormMate</strong></h1></mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <form #userRegForm='ngForm' (ngSubmit)="userRegForm.form.valid && RegisterUser(userRegForm.value)">
+      <form #userRegForm='ngForm' (ngSubmit)="loginUser()">
         <div class="form-group">
           <label for="exampleInputEmail1">Email address:</label>
           <input [(ngModel)]="email" name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
@@ -24,7 +24,7 @@
             Remember me!
           </label>
         </div>
-        <button routerLink="/match" routerLinkActive="active" type="submit" class="btn btn-primary" (click)="getData()">Login</button>
+        <button  type="submit" class="btn btn-primary">Login</button>
       </form>
     	<nav>
     		<a routerLink="/createAccount" routerLinkActive="active" class="btn btn-primary" id="createUser" >Create Account</a>
