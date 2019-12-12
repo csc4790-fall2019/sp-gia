@@ -1,5 +1,5 @@
 export class UserData{
-  Id: string;
+  id: string;
   EMail: string;
   Password: string;
   VUID: string;

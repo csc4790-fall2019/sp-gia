@@ -59,7 +59,7 @@
       "lastName": "Osuagwu",
       "Class": "2020",
       "Hometown": "Wilmington",
-      "Major": "Computer Science",
+      "Major": "Comp Sci",
       "Bedtime": "2am",
       "Bio": "Apples to Apples",
       "Gender": "Male",
@@ -67,6 +67,9 @@
       "Alcohol": "false",
       "Neatness": "false",
       "Snore": "false",
+      "EMail": "iosuagwu@villanova.edu",
+      "Password": "qwerty",
+      "VUID": "01662668",
       "id": 4
     }
   ]

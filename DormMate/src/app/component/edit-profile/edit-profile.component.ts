@@ -42,7 +42,10 @@ export class EditProfileComponent implements OnInit {
         Smoker: [data.Smoker],
         Alcohol: [data.Alcohol],
         Neatness: [data.Neatness],
-        Snore: [data.Snore]
+        Snore: [data.Snore],
+        EMail: [data.EMail],
+        Password: [data.Password],
+        VUID: [data.VUID]
       })
     });
   }
@@ -65,7 +68,10 @@ export class EditProfileComponent implements OnInit {
       Smoker: [''],
       Alcohol: [''],
       Neatness: [''],
-      Snore: ['']
+      Snore: [''],
+      EMail: [this.updateUser.Email],
+      Password: [this.updateUser.Password],
+      VUID: [this.updateUser.VUID]
     });
   }
 
