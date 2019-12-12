@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { UserdataService } from '../../userdata.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-match',
@@ -7,9 +10,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MatchComponent implements OnInit {
 
-  constructor() { }
+  usersList: any = [];
+  num: number = 2;
+
+  constructor(
+    private actRoute: ActivatedRoute,
+    private userdataService: UserdataService,
+    public fb: FormBuilder,
+    private ngZone: NgZone,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    this.rollMatches();
   }
+
+  rollMatches() {
+    this.userdataService.getUser(this.num).subscribe((data) => {
+      this.usersList = data;
+    });
+    if(this.num==16){
+      this.ngZone.run(() => this.router.navigateByUrl('/messages'))
+    }
+    this.num++;
+  }
+
+  /*showMatch(id){
+    this.userdataService.getUser(id).subscribe((data) => {
+      this.usersList = data;
+    });
+  }*/
+
 
 }
