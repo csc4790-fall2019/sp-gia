@@ -13,7 +13,7 @@ export class MatchComponent implements OnInit {
   usersList: any = [];
   num: number = 2;
   match: boolean = false;
-  image: string = [
+  images: string[] = [
     "https://villanova.com/images/2019/10/2/9_27_19_186.jpg?width=300",
     "https://villanova.com/images/2019/10/2/9_27_19_221.jpg?width=300",
     "https://villanova.com/images/2019/10/2/9_27_19_194.jpg?width=300",
@@ -27,8 +27,9 @@ export class MatchComponent implements OnInit {
     "https://villanova.com/images/2018/10/4/Becky_Ducar.jpg?width=300",
     "https://villanova.com/images/2019/10/2/9_27_19_223.jpg?width=300",
     "https://villanova.com/images/2019/10/2/9_27_19_217.jpg?width=300",
-    "https://villanova.com/images/2019/10/2/9_27_19_206.jpg?width=300",
+    "https://villanova.com/images/2019/10/2/9_27_19_206.jpg?width=300"
   ];
+  imgURL: string = "";
 
   constructor(
     private actRoute: ActivatedRoute,
@@ -46,6 +47,7 @@ export class MatchComponent implements OnInit {
     this.userdataService.getUser(this.num).subscribe((data) => {
       this.usersList = data;
     });
+    this.imgURL= this.images[this.num-2];
     if(this.num==16){
       this.ngZone.run(() => this.router.navigateByUrl('/messages'))
     }
